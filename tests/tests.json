@@ -1,0 +1,76 @@
+[
+  {
+    "name": "Portafolio público y contador global",
+    "sanity": true,
+    "viewport": "desktop",
+    "covers": [
+      "presentación profesional",
+      "secciones de habilidades y proyectos",
+      "contacto por correo",
+      "POST /api/visits",
+      "contador global persistente",
+      "visitas del día"
+    ],
+    "description": "Comprueba que el portafolio presenta el perfil, proyectos y estadísticas y que una visita incrementa los contadores persistentes.",
+    "steps": [
+      "Abrir la página principal",
+      "Revisar las secciones Sobre mí, Habilidades, Proyectos y Contacto",
+      "Esperar la respuesta del endpoint de visitas"
+    ],
+    "expected": "Se muestra el portafolio profesional y los contadores global y diario se actualizan con valores devueltos por el backend."
+  },
+  {
+    "name": "Acceso administrativo restringido a la cuenta autorizada",
+    "viewport": "desktop",
+    "covers": [
+      "inicio de sesión AppDeploy",
+      "restricción por correo administrador",
+      "GET /api/admin/stats",
+      "cierre de sesión"
+    ],
+    "description": "Comprueba que solo el correo autorizado puede consultar el panel privado y las métricas.",
+    "steps": [
+      "Abrir Acceso administrador",
+      "Iniciar sesión con carlosd.solano98@gmail.com",
+      "Consultar el dashboard",
+      "Cerrar sesión"
+    ],
+    "expected": "La cuenta autorizada ve el panel. El endpoint rechaza sesiones no autenticadas o cuentas distintas del correo autorizado."
+  },
+  {
+    "name": "Estadísticas diarias, semanales y mensuales",
+    "viewport": "desktop",
+    "covers": [
+      "GET /api/admin/stats",
+      "total histórico",
+      "resumen últimos 7 días",
+      "resumen últimos 30 días",
+      "gráfica de visitas por día"
+    ],
+    "description": "Comprueba que el panel presenta métricas calculadas desde registros diarios persistentes.",
+    "steps": [
+      "Acceder al panel como administrador",
+      "Consultar los cuatro indicadores",
+      "Revisar la gráfica de los últimos 30 días"
+    ],
+    "expected": "El dashboard presenta total histórico, visitas de hoy, suma de 7 y 30 días y una barra por cada fecha del periodo."
+  },
+  {
+    "name": "Servicios y mantenimiento de computadores",
+    "viewport": "desktop",
+    "covers": [
+      "sección Servicios",
+      "sección Mantenimiento",
+      "proceso",
+      "preguntas frecuentes",
+      "enlaces de cotización por WhatsApp"
+    ],
+    "description": "Comprueba que el sitio explica los servicios web y de mantenimiento y permite solicitar cada uno.",
+    "steps": [
+      "Abrir la página principal",
+      "Revisar Servicios, Mantenimiento, Proceso y Preguntas frecuentes",
+      "Pulsar Solicitar mantenimiento"
+    ],
+    "expected": "Cada servicio muestra descripción, público ideal y alcance. Los botones de cotización abren WhatsApp con un mensaje según el servicio."
+  }
+]
